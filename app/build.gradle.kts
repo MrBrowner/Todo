@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("io.realm.kotlin")
 }
 
 android {
@@ -49,7 +50,12 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     // MMKV
-    implementation ("com.tencent:mmkv:1.3.3")
+    implementation("com.tencent:mmkv:1.3.3")
 
+    // realm
+    implementation("io.realm.kotlin:library-base:1.11.0")
+//    implementation 'io.realm.kotlin:library-sync:1.11.0' // If using Device Sync
+
+//    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0") // If using coroutines with the SDK
 
 }
