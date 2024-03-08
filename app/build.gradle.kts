@@ -49,6 +49,11 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
+
+    // Koin for Android
+    implementation("io.insert-koin:koin-android:3.5.3")
+//    testImplementation("io.insert-koin:koin-test-junit4:3.5.3")
+
     // MMKV
     implementation("com.tencent:mmkv:1.3.3")
 
