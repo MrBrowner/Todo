@@ -1,11 +1,11 @@
 package com.example.todo.activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.todo.R
 import com.example.todo.vm.MainVM
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.e("main", "onCreate: ${vm.t1}", )
+        Timber.e("onCreate: " + vm.t1)
     }
 }

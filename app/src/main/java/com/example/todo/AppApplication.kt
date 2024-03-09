@@ -11,6 +11,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
+import timber.log.Timber
 
 
 class AppApplication : Application() {
@@ -20,6 +21,22 @@ class AppApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        if (BuildConfig.DEBUG) {
+//            Timber.plant(Timber.DebugTree())
+            Timber.plant(object : Timber.DebugTree() {
+
+                override fun createStackElementTag(element: StackTraceElement): String {
+                    return String.format(
+                        "%s %s",
+                        element.lineNumber,
+                        super.createStackElementTag(element),
+                    )
+                }
+            })
+        } else {
+            // custom tree
+        }
+
         startKoin {
             androidLogger(Level.ERROR)
             androidContext(this@AppApplication)
@@ -27,10 +44,10 @@ class AppApplication : Application() {
         }
 
         val rootDir = MMKV.initialize(this)
-        Log.e("mmkv", ": $rootDir")
+        Timber.e(": $rootDir")
 
-        KVStore.setKV("app_v", BuildConfig.VERSION_NAME)
-        Log.e("AppV", "${KVStore.getKV("app_v", "")}")
-        Log.e("realm", ": ${realm.configuration.path}")
+//        KVStore.setKV("app_v", BuildConfig.VERSION_NAME)
+        Timber.e("app_v=" + KVStore.getKV("app_v", "").toString())
+        Timber.e("realm: %s", realm.configuration.path)
     }
 }
