@@ -7,4 +7,8 @@ import org.koin.dsl.module
 
 val koinModule = module {
     single { Realm.open(RealmConfiguration.create(schema = setOf(Todo::class))) }
+
+//    viewModel { MainVM() }
+//    scope<MainActivity> {
+//    }
 }

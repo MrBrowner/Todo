@@ -50,6 +50,14 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
 
+    // lifecycle ---------------------------------------------------------------------------------
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+//    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+//    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+//    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0")
+//    implementation("androidx.lifecycle:lifecycle-common-java8:2.7.0")
+    // -------------------------------------------------------------------------------------------
+
     // Koin for Android
     implementation("io.insert-koin:koin-android:3.5.3")
 //    testImplementation("io.insert-koin:koin-test-junit4:3.5.3")
