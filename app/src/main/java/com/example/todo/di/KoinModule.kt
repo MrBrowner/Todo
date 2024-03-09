@@ -23,7 +23,7 @@ val koinModule = module {
 
     single<Retrofit> {
         Retrofit.Builder()
-            .baseUrl("https://animechan.xyz/api")
+            .baseUrl("https://animechan.xyz/api/")
             .addConverterFactory(get<Json>().asConverterFactory("application/json".toMediaType())) // should add it at last
             .build()
     }
