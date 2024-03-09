@@ -1,11 +1,11 @@
 package com.example.todo
 
 import android.app.Application
-import android.util.Log
 import com.example.todo.di.koinModule
 import com.example.todo.pref.KVStore
 import com.tencent.mmkv.MMKV
 import io.realm.kotlin.Realm
+import logging.ReleaseTree
 import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -22,7 +22,6 @@ class AppApplication : Application() {
         super.onCreate()
 
         if (BuildConfig.DEBUG) {
-//            Timber.plant(Timber.DebugTree())
             Timber.plant(object : Timber.DebugTree() {
 
                 override fun createStackElementTag(element: StackTraceElement): String {
@@ -35,6 +34,7 @@ class AppApplication : Application() {
             })
         } else {
             // custom tree
+            Timber.plant(ReleaseTree())
         }
 
         startKoin {
