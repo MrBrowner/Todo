@@ -1,0 +1,13 @@
+### https://animechan.xyz/docs
+###
+GET https://animechan.xyz/api/random
+Content-Type: application/json
+
+
+{
+	anime: "...",
+	character: "...",
+	quote: "..."
+}
+
+###

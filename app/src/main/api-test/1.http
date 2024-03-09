@@ -1,0 +1,41 @@
+@baseUrl = https://jsonplaceholder.typicode.com
+
+### GET, POST, PUT, PATCH, DELETE
+
+###
+GET {{baseUrl}}/posts/1
+Content-Type: application/json
+
+###
+POSTs {
+  "userId": 1,
+  "id": 1,
+  "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+}
+
+###
+GET {{baseUrl}}/posts/1/comments/
+Content-Type: application/json
+
+###
+[{
+    "postId": 1,
+    "id": 1,
+    "name": "id labore ex et quam laborum",
+    "email": "Eliseo@gardner.biz",
+    "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+}]
+
+###
+GET {{baseUrl}}/comments?postId=1
+Content-Type: application/json
+
+###
+[{
+    "postId": 1,
+    "id": 1,
+    "name": "id labore ex et quam laborum",
+    "email": "Eliseo@gardner.biz",
+    "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+}]
