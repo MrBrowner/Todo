@@ -1,10 +1,11 @@
 package com.example.todo.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.todo.R
 import com.example.todo.dataOBox.network.model.AnimeQuoteNetworkModel
+import com.example.todo.databinding.ActivityMainBinding
 import com.example.todo.vm.MainVM
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -13,9 +14,12 @@ import timber.log.Timber
 class MainActivity : AppCompatActivity() {
 
     private val vm: MainVM by viewModels<MainVM>()
+    private lateinit var bind: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        bind = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(bind.root)
 
         Timber.e("onCreate: " + vm.t1)
 
@@ -24,5 +28,9 @@ class MainActivity : AppCompatActivity() {
 
         val two = """{"anime":"life","character":"mE","quote":"XyX"}"""
         Timber.tag("a2").e(Json.decodeFromString<AnimeQuoteNetworkModel>(two).toString())
+
+        bind.btn1Quote.setOnClickListener {
+            startActivity(Intent(this, AnimeQuoteActivity::class.java))
+        }
     }
 }
