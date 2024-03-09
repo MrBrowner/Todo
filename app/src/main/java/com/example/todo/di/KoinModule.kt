@@ -1,6 +1,6 @@
 package com.example.todo.di
 
-import com.example.todo.dataOBox.network.model.AnimeQuoteService
+import com.example.todo.dataOBox.network.AnimeQuoteService
 import com.example.todo.dataOBox.repo.AnimeQuoteRepoImpl
 import com.example.todo.dataRealm.model.Todo
 import com.example.todo.domain.repo.AnimeQuoteRepo
