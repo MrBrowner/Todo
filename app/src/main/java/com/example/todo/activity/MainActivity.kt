@@ -4,7 +4,10 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.todo.R
+import com.example.todo.dataOBox.AnimeQuote
 import com.example.todo.vm.MainVM
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
@@ -15,5 +18,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Timber.e("onCreate: " + vm.t1)
+
+        val one = AnimeQuote("life", "mE", "XyX")
+        Timber.tag("a1").e(Json.encodeToString(one))
+
+        val two = """{"anime":"life","character":"mE","quote":"XyX"}"""
+        Timber.tag("a2").e(Json.decodeFromString<AnimeQuote>(two).toString())
     }
 }
