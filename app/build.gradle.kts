@@ -2,7 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("io.realm.kotlin")
-    id("org.jetbrains.kotlin.plugin.serialization")
+//    id("org.jetbrains.kotlin.plugin.serialization")
+    kotlin("plugin.serialization") version "1.9.23"
 }
 
 android {
@@ -72,10 +73,11 @@ dependencies {
     // realm
     implementation("io.realm.kotlin:library-base:1.11.0")
 //    implementation 'io.realm.kotlin:library-sync:1.11.0' // If using Device Sync
-
 //    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0") // If using coroutines with the SDK
 
     // serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+//    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+//    implementation("com.squareup.okhttp3:okhttp:4.11.0")
 
 }
