@@ -9,6 +9,14 @@
     tools:context=".activity.AnimeQuoteActivity">
 
     <TextView
+        android:id="@+id/tvAnime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8sp"
+        android:textSize="20sp"
+        tools:text="Anime 1" />
+
+    <TextView
         android:id="@+id/tvQuote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

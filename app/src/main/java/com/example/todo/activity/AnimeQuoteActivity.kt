@@ -7,11 +7,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.todo.databinding.ActivityAnimeQuoteBinding
 import com.example.todo.vm.AnimeQuoteVM
+import com.techiness.progressdialoglibrary.ProgressDialog
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
-import com.techiness.progressdialoglibrary.ProgressDialog;
 
 class AnimeQuoteActivity : AppCompatActivity() {
 
@@ -27,18 +27,21 @@ class AnimeQuoteActivity : AppCompatActivity() {
         bind = ActivityAnimeQuoteBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
-        Timber.e(vm.msg)
-
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED){
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
                 vm.q2.collectLatest {
                     progressBar.dismiss()
                     it?.let {
                         bind.tvQuote.text = it.quote
+                        bind.tvAnime.text = it.anime
                     }
                     Timber.tag("q2").e(it.toString()) // initial data (null) is also emitted
                 }
             }
+        }
+
+        vm.getQuotesLiveData().observe(this) {
+            Timber.e("Qs=${it.size}\n${it.joinToString { it.anime ?: "" }}")
         }
 
         bind.btnShuffle.setOnClickListener {
