@@ -1,6 +1,5 @@
 package com.example.todo.dataOBox.repo
 
-import com.example.todo.dataOBox.mapper.toQuote
 import com.example.todo.dataOBox.network.AnimeQuoteService
 import com.example.todo.domain.model.AnimeQuote
 import com.example.todo.domain.repo.AnimeQuoteRepo

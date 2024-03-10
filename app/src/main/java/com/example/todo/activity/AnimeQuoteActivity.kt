@@ -40,8 +40,8 @@ class AnimeQuoteActivity : AppCompatActivity() {
             }
         }
 
-        vm.getQuotesLiveData().observe(this) {
-            Timber.e("Qs=${it.size}\n${it.joinToString { it.anime ?: "" }}")
+        vm.getQuotesLiveData().observe(this) { quotes ->
+            Timber.e("Qs=${quotes.size}\n${quotes.joinToString { it.id.toString() }}")
         }
 
         bind.btnShuffle.setOnClickListener {
