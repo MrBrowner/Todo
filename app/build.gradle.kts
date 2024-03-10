@@ -85,4 +85,7 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
 
 //    implementation("com.couchbase.lite:couchbase-lite-android-ktx:3.1.3")
+
+    // external
+    implementation("com.github.techinessoverloaded:progress-dialog:1.5.1")
 }

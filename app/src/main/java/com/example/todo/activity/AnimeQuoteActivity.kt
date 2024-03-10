@@ -11,11 +11,16 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
+import com.techiness.progressdialoglibrary.ProgressDialog;
 
 class AnimeQuoteActivity : AppCompatActivity() {
 
     private val vm: AnimeQuoteVM by viewModel()
     private lateinit var bind: ActivityAnimeQuoteBinding
+
+    private val progressBar by lazy {
+        ProgressDialog(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,20 +28,21 @@ class AnimeQuoteActivity : AppCompatActivity() {
         setContentView(bind.root)
 
         Timber.e(vm.msg)
-        vm.quote.observe(this) {
-            Timber.tag("quote").e(it.toString())
-        }
-
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED){
                 vm.q2.collectLatest {
+                    progressBar.dismiss()
+                    it?.let {
+                        bind.tvQuote.text = it.quote
+                    }
                     Timber.tag("q2").e(it.toString()) // initial data (null) is also emitted
                 }
             }
         }
 
         bind.btnShuffle.setOnClickListener {
+            progressBar.show()
             vm.generateRandomQuote()
         }
     }
