@@ -1,10 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
 //    id("io.realm.kotlin")
     kotlin("plugin.serialization") version "1.9.23"
-
-    id("com.google.devtools.ksp")
 
     id("io.objectbox")
 }
@@ -88,4 +87,9 @@ dependencies {
 
     // external
     implementation("com.github.techinessoverloaded:progress-dialog:1.5.1")
+
+    // object-box-admin
+//    debugImplementation("io.objectbox:objectbox-android-objectbrowser:3.8.0")
+//    releaseImplementation("io.objectbox:objectbox-android:3.8.0")
 }
+//apply(plugin = ("io.objectbox"))

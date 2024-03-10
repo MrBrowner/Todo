@@ -44,5 +44,11 @@ class AppApplication : Application() {
 
 //        KVStore.setKV("app_v", BuildConfig.VERSION_NAME)
         Timber.e("app_v=" + KVStore.getKV("app_v", "").toString())
+
+        if (BuildConfig.DEBUG) {
+//            val boxStore = get<BoxStore>()
+//            val startedAdmin =  Admin(boxStore).start(this)
+//            Timber.tag("ObjectBox admin").d("started = $startedAdmin")
+        }
     }
 }
