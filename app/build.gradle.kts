@@ -4,6 +4,10 @@ plugins {
     id("io.realm.kotlin")
 //    id("org.jetbrains.kotlin.plugin.serialization")
     kotlin("plugin.serialization") version "1.9.23"
+
+    id("com.google.devtools.ksp")
+
+    id("io.objectbox")
 }
 
 android {

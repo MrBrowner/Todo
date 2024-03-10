@@ -4,4 +4,11 @@ plugins {
     id("org.jetbrains.kotlin.android") version "1.9.10" apply false
     id("io.realm.kotlin") version "1.11.0" apply false
 //    id("org.jetbrains.kotlin.plugin.serialization") version "1.7.10" apply false
+    id("com.google.devtools.ksp") version "1.8.10-1.0.9" apply false
+}
+
+buildscript {
+    dependencies {
+        classpath("io.objectbox:objectbox-gradle-plugin:3.8.0")
+    }
 }
