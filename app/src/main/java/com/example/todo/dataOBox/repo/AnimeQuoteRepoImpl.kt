@@ -10,7 +10,7 @@ class AnimeQuoteRepoImpl(
 ): AnimeQuoteRepo {
     override suspend fun getRandomQuote(): Result<AnimeQuote> {
         return try {
-            Result.success(service.getRandomQuote().toQuote())
+            Result.success(service.getRandomQuote())
         } catch (ex: Exception) {
             Result.failure(ex)
         }

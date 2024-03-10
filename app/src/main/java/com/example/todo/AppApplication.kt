@@ -2,11 +2,9 @@ package com.example.todo
 
 import android.app.Application
 import com.example.todo.di.koinModule
+import com.example.todo.logging.ReleaseTree
 import com.example.todo.pref.KVStore
 import com.tencent.mmkv.MMKV
-import io.realm.kotlin.Realm
-import com.example.todo.logging.ReleaseTree
-import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -15,8 +13,6 @@ import timber.log.Timber
 
 
 class AppApplication : Application() {
-
-    private val realm: Realm by inject()
 
     override fun onCreate() {
         super.onCreate()
@@ -48,6 +44,5 @@ class AppApplication : Application() {
 
 //        KVStore.setKV("app_v", BuildConfig.VERSION_NAME)
         Timber.e("app_v=" + KVStore.getKV("app_v", "").toString())
-        Timber.e("realm: %s", realm.configuration.path)
     }
 }

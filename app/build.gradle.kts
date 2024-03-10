@@ -1,8 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("io.realm.kotlin")
-//    id("org.jetbrains.kotlin.plugin.serialization")
+//    id("io.realm.kotlin")
     kotlin("plugin.serialization") version "1.9.23"
 
     id("com.google.devtools.ksp")
@@ -76,7 +75,7 @@ dependencies {
     implementation("com.tencent:mmkv:1.3.3")
 
     // realm
-    implementation("io.realm.kotlin:library-base:1.11.0")
+//    implementation("io.realm.kotlin:library-base:1.11.0")
 //    implementation 'io.realm.kotlin:library-sync:1.11.0' // If using Device Sync
 //    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0") // If using coroutines with the SDK
 
@@ -85,4 +84,5 @@ dependencies {
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
 
+//    implementation("com.couchbase.lite:couchbase-lite-android-ktx:3.1.3")
 }
